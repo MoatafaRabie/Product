@@ -59,7 +59,7 @@ const products =List.map(product=><Appp key={product.id} product={product} /> )
     </div>
     <div className=' flex  w-auto ml-20 container grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 '>
     <Appp stata={stata} obj={obj} formlistlist={formlistlist}/>
-    <Appp/>
+    
     {products}
     </div>
     </>
