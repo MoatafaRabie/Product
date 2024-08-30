@@ -41,12 +41,35 @@ const List =[
         ProductDiscription:" Many students define paragraphs in terms of length: a paragraph is a group of at least "
     },
     {
-        img : "https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1666008987698.jpg",
+        img : "https://th.bing.com/th/id/OIP.q-LGmXr7aJRq_rtX1eZ45gHaEo?rs=1&pid=ImgDetMain",
         title : "Car 6",
         id : "6",
         coucst : "$300k",
         ProductDiscription:" Many students define paragraphs in terms of length: a paragraph is a group of at least "
     },
+    {
+        img : "https://carwow-uk-wp-3.imgix.net/18015-MC20BluInfinito-scaled-e1666008987698.jpg",
+        title : "Car 7",
+        id : "7",
+        coucst : "$300k",
+        ProductDiscription:" Many students define paragraphs in terms of length: a paragraph is a group of at least "
+    },
+    {
+        img : "https://th.bing.com/th/id/OIP.q-LGmXr7aJRq_rtX1eZ45gHaEo?rs=1&pid=ImgDetMain",
+        title : "Car 8",
+        id : "8",
+        coucst : "$300k",
+        ProductDiscription:" Many students define paragraphs in terms of length: a paragraph is a group of at least "
+    },
+    {
+        img : "https://wallpaperaccess.com/full/155161.jpg",
+        title : "Car 9",
+        id : "9",
+        coucst : "$300k",
+        ProductDiscription:" Many students define paragraphs in terms of length: a paragraph is a group of at least "
+    },
+    
+    
     
 ];
 export default List ;

@@ -1,29 +1,23 @@
 
-import { useState } from "react";
-import List from "./list";
-import MyModal from "./modul";
 
-const Appp=({stata ,obj,product})=> {
-console.log(product);
-const [edit ,setEtit]=useState(obj)
-
+const Appp=({product,setEtit,openEdit})=> {
     const Edit =()=>{
         setEtit(product);
-        console.log(edit);
+        openEdit();
         return<>
-        
 
         </>
     }
-
-    const formlist =List.map(list =>(
-        <div className="ml-4 p-2 border-black bg-slate-100 max-w-60 mb-10" key={list.id}>
+ return(
+    <>
+    
+<div className="ml-4 p-2 border-black bg-slate-100 max-w-60 mb-10" >
     <div>
     
-    <img src={list.img} className="rounded-md" width={300}height={300} alt=''/>
-    <h2>{list.title}</h2>
+    <img src={product.img} className="rounded-md" width={300}height={300} alt=''/>
+    <h2>{product.title}</h2>
     </div>
-    <p> {list.ProductDiscription} 
+    <p> {product.ProductDiscription} 
     </p><br/>
     <div className="flex items-center space-x-2"> 
         <span className="w-5 h-5 bg-black rounded-full cursor-pointer"></span>
@@ -32,7 +26,7 @@ const [edit ,setEtit]=useState(obj)
 
     </div>
     <p className="text-blue-600">
-        {list.coucst}
+        {product.coucst}
         
         
     </p><br/>
@@ -44,13 +38,6 @@ const [edit ,setEtit]=useState(obj)
         </div>
     
     </div>
-
-
-    ));
- return(
-    <>
-    {formlist}
-    
     </>
  );   
 }
