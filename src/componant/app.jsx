@@ -1,21 +1,18 @@
 
 
-const Appp=({product,setEtit,openEdit,edit,openRemove ,idx,addproduct,setAddproduct})=> {
+const Appp=({product,setEtit,openEdit,openRemove ,setProductidx,idx})=> {
 
     const Edit =()=>{
         setEtit(product);
-        console.log(edit);
+        setProductidx(idx)
         openEdit();
         
-        return<>
 
-        </>
     }
     const dele=()=>{
         setEtit(product);
         openRemove();
-        return<>
-        </>
+
     }
  return(
     <>

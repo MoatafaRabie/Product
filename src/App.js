@@ -36,6 +36,8 @@ function App() {
   function closeEdit() {
     setIsOpenEditmModul(false)
   }
+        //   ************* Product idx ****************//
+      const [productidx ,setProductidx] =useState(0);
       //   ************* open & close Remove ****************//
 
       const [isOpenRemovemModul, setIsOpenremovemModul] = useState(false)
@@ -81,7 +83,9 @@ const[stataa ,setStatass]=useState(obj);
 //console.log(stataa);
 
 let handlerEdit =function (e){
-  console.log("ssss")
+  setEtit((old)=>{
+    return{...old ,[e.target.name]:e.target.value}
+  })
   setStatass((old)=>{
     
     return{...old,[e.target.name]:e.target.value}
@@ -108,14 +112,14 @@ const formlistlistEdit =Formlist.map(input =>(
    
   <form  key={input.id}>
      <label>{input.lable}</label>
-     <input className='w-full rounded-md h-11 p-3 border-2 shadow-md 'name={input.lable} type='text' onChange={handlerEdit}  /><br/>
+     <input className='w-full rounded-md h-11 p-3 border-2 shadow-md 'name={input.lable} type='text' onChange={handlerEdit} value={edit[input.lable]} /><br/>
       { msgg.errors &&<ErrorMsg   msg={msgg.errors[input.lable]}/>}
       
      </form>
 ));
 
 
-const products =addproduct.map((product, idx )=><Appp key={idx} openRemove={openRemove}  idx={idx} setDeleproduct={setDeleproduct} stataa={stataa} edit={edit}  product={product} setEtit={setEtit} openEdit={openEdit} /> )
+const products =addproduct.map((product, idx )=><Appp key={idx} openRemove={openRemove}  idx={idx} setDeleproduct={setDeleproduct} stataa={stataa} edit={edit} setProductidx={setProductidx} product={product} setEtit={setEtit} openEdit={openEdit} /> )
 
 
 //   ************* color****************//
@@ -139,12 +143,13 @@ const [temp ,setTemp]=useState([])
 const onclose=()=>{
   setStats(obj);
   close();
+  setMsgg(obj);
   
 }
 const oncloseEdit=()=>{
   setStats(obj);
   closeEdit();
-  
+
 }
 const oncloseRemove=()=>{
   closeRemove();
@@ -157,37 +162,46 @@ const onsubmitt=(e)=>{
   const errors =Valid(stata);
   //console.log(errors);
 
-  close()
+  console.log(errors.errors);
+  const haserror =Object.values(errors.errors).some(value => value ==="") 
+  && Object.values(errors.errors).every(value => value==="")
+  console.log(haserror);
+  if(!haserror){
+    
+    setMsgg(errors);
+     return ;
+  }
+  
+  onclose()
+
   setAddproduct((old)=>{
     //console.log(old);
-    return[...old,stata];
-  })
-  const haserror = Object.values(errors).some(value => value ==="") && Object.values(errors).every(value => value==="")
-  if(!haserror){
+    return[...old,stata]; }
+  )
 
-     return setMsgg(errors);
-
-    }
 
 
 }
   const onsubmit=(e)=>{
     e.preventDefault();
     closeEdit();
+    setAddproduct((old)=>{
+      return[...old,stata];
+      
+    })
+    const Updatedproducts = [...addproduct]
+    Updatedproducts[productidx] =edit;
+    setAddproduct(Updatedproducts)
     const errors =Valid(stata);
-    const haserror = Object.values(errors).some(value => value ==="") && Object.values(errors).every(value => value==="")
-    if(!haserror){
-  
-       return setMsgg(errors);
+    const haserror =Object.values(errors.errors).some(value => value ==="") 
+    && Object.values(errors.errors).every(value => value==="") 
+       if(haserror){
+      setMsgg(errors)
+       return ;
   
     }
-  
-  setAddproduct((old)=>{
-    console.log(old);
-    return[...old,stata];
+   
     
-  })
-  
 }
 const onsubmitRemove=(e)=>{
   closeRemove();
@@ -234,7 +248,7 @@ const renderdd =temp.map((color,inx)=> <span key={inx} className='text-white mx-
     {<div>
     <Button
         onClick={openEdit}
-        className="  py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white"
+        className="  py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white "
       >
       </Button>
       <Dialog open={isOpenEditmModul} as="div" className="relative z-10 focus:outline-none" onClose={closeEdit}>
