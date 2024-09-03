@@ -1,7 +1,8 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 
 
-export default function MyModal({formlistlist,open,isOpen,close,renderd,renderdd, onclose}) {
+
+export default function MyModal({formlistlist,open,isOpen,close,renderd,renderdd, onclose,onsubmitt}) {
 return(
 
     <>
@@ -37,7 +38,7 @@ return(
               <div className="mt-4 flex space-x-3">
                 <Button
                   className="w-full  rounded-md bg-blue-600 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-blue-600"
-                  onClick={onsubmit} onDoubleClick={close}>Submit</Button>
+                  onClick={onsubmitt} >Submit</Button>
                   <Button
                   className="w-full  rounded-md bg-gray-500 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-blue-600"
                   onClick={onclose}>cancel</Button>

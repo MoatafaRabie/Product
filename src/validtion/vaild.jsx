@@ -1,6 +1,6 @@
 
 const Valid =(ww)=>{
-console.log("ww",ww);
+//console.log(ww);
 
     const errors={
         ProductTitle : "",
@@ -16,7 +16,7 @@ console.log("ww",ww);
     if(!ww.ProductDiscription.trim() ||ww.ProductDiscription.length<10 || ww.ProductDiscription.length> 900 ){
         errors.ProductDiscription="invalid Discription must be atleast 10 "
     }
-    var urlRegex=/[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/.test(errors.ProductImgeURL);
+    var urlRegex=/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(ww.ProductImgeURL);
     if(!ww.ProductImgeURL.trim() || !urlRegex){
         errors.ProductImgeURL="invalid url"
 
