@@ -184,6 +184,14 @@ const onsubmitt=(e)=>{
 }
   const onsubmit=(e)=>{
     e.preventDefault();
+    
+    const errors =Valid(stata);
+    const haserror =Object.values(errors.errors).some(value => value ==="") 
+    && Object.values(errors.errors).every(value => value==="") 
+       if(haserror){
+      setMsgg(errors)
+       return ;
+    }
     closeEdit();
     setAddproduct((old)=>{
       return[...old,stata];
@@ -192,15 +200,6 @@ const onsubmitt=(e)=>{
     const Updatedproducts = [...addproduct]
     Updatedproducts[productidx] =edit;
     setAddproduct(Updatedproducts)
-    const errors =Valid(stata);
-    const haserror =Object.values(errors.errors).some(value => value ==="") 
-    && Object.values(errors.errors).every(value => value==="") 
-       if(haserror){
-      setMsgg(errors)
-       return ;
-  
-    }
-   
     
 }
 const onsubmitRemove=(e)=>{
@@ -235,7 +234,7 @@ const renderdd =temp.map((color,inx)=> <span key={inx} className='text-white mx-
   return (
     <>
     <div className='flex justify-center my-5 space-x-36'>
-    <h1 className='text-2xl'>List of Product</h1>
+    <h1 className=' text-2xl'>List of Product</h1>
     <MyModal stata={stata} setStats={setStats}obj={obj} formlistlist={formlistlist} setMsgg={setMsgg}
      renderdd={renderdd} renderd={renderd} onsubmitt={onsubmitt} onclose={onclose} open={open}
      color={color} close={close} isOpen={isOpen}/>

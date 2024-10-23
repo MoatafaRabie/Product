@@ -10,10 +10,10 @@ const Valid =(ww)=>{
     }
 
   
-    if(!ww.ProductTitle.trim() || ww.ProductTitle.length<10 || ww.ProductTitle.length> 80 ){
-        errors.ProductTitle="invalid title must be atleast 10 "
+    if(!ww.ProductTitle.trim() || ww.ProductTitle.length<3 || ww.ProductTitle.length> 40 ){
+        errors.ProductTitle="invalid title must be atleast 3 "
     }
-    if(!ww.ProductDiscription.trim() ||ww.ProductDiscription.length<10 || ww.ProductDiscription.length> 900 ){
+    if(!ww.ProductDiscription.trim() ||ww.ProductDiscription.length<10 || ww.ProductDiscription.length> 100 ){
         errors.ProductDiscription="invalid Discription must be atleast 10 "
     }
     var urlRegex=/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(ww.ProductImgeURL);
